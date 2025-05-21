@@ -600,17 +600,15 @@
 
 <!-- Add the JavaScript for dynamic loading -->
 <script>
-  // Configuration - adjust to match your file structure
+  // Configuration
   const CONFIG = {
-    basePath: 'static/conversations/',
-    domainIndex: 'domains.json'
+    conversationsJsonPath: 'static/conversations/conversations.json'
   };
   
   // Global state
-  let domains = [];
-  let conversations = {};
+  let conversationsData = null;
   let currentDomain = null;
-  let currentConversation = null;
+  let currentConversationId = null;
   
   // DOM Elements
   const domainDropdown = document.getElementById('domain-dropdown');
@@ -632,78 +630,46 @@
     domainDropdown.addEventListener('change', handleDomainChange);
     conversationDropdown.addEventListener('change', handleConversationChange);
     
-    // Scan for domains
-    scanForDomains();
-  }
-  
-  async function scanForDomains() {
-    try {
-      // In a production environment, you'd have a server-side endpoint that returns the list of domains
-      // Since we're in a browser and can't directly scan directories, we'll try to use a domains.json file
-      // or fall back to scanning a few known domains
-      
-      try {
-        const response = await fetch(`${CONFIG.basePath}${CONFIG.domainIndex}`);
-        const data = await response.json();
-        domains = data.domains;
-      } catch (e) {
-        console.log("No domains.json found, attempting to scan known domains");
-        // Check if some common domains exist by trying to fetch a test file
-        domains = [];
-        
-        // List of potential domains to check
-        const potentialDomains = ['Art', 'Books', 'Cars', 'Celebrities', 'Coding', 'Cooking', 'Education', 'Events', 'Fashion', 'Finance', 'Fitness', 'Food', 'Gaming', 'Gardening', 'Health', 'History', 'Hobbies', 'Holidays', 'Home', 'Languages', 'Makeup', 'Movies', 'Music', 'Nature', 'News', 'Pets', 'Philosophy', 'Photography', 'Podcasts', 'Politics', 'Relationships', 'Science', 'Shopping', 'SocialMedia', 'Spirituality', 'Sports', 'Technology', 'Traditions', 'Travel', 'Weather', 'Work'];
-
-
-        // Try to fetch each domain's directory
-        for (const domain of potentialDomains) {
-          try {
-            // We just check if the directory exists by trying to fetch a directory listing
-            // In a real production environment, you would have a server endpoint that returns directory contents
-            const checkResponse = await fetch(`${CONFIG.basePath}${domain}/`);
-            if (checkResponse.ok) {
-              domains.push(domain);
-            }
-          } catch (err) {
-            // If fetch fails, this domain doesn't exist
-            console.log(`Domain ${domain} not found`);
-          }
-        }
-        
-        // If no domains were found, use a default set
-        if (domains.length === 0) {
-          domains = ['Art'];
-        }
-      }
-      
-      // Update stats
-      updateStats();
-      
-      // Populate domain dropdown
-      populateDomains(domains);
-    } catch (error) {
-      console.error('Error scanning for domains:', error);
-      domains = ['Art'];
-      populateDomains(domains);
-    }
+    // Load conversations data
+    loadConversationsData();
+    
+    // Update fixed stats
+    updateStats();
   }
   
   function updateStats() {
-    // Update domain count
     domainCountEl.textContent = '41';
     conversationCountEl.textContent = '40K+';
     averageTurnsEl.textContent = '6.02';
     audioHoursEl.textContent = '480+';
   }
   
-  function populateDomains(domainList) {
+  async function loadConversationsData() {
+    try {
+      const response = await fetch(CONFIG.conversationsJsonPath);
+      if (!response.ok) {
+        throw new Error(`Failed to load conversations data: ${response.status} ${response.statusText}`);
+      }
+      
+      conversationsData = await response.json();
+      
+      // Populate domain dropdown
+      populateDomainDropdown();
+    } catch (error) {
+      console.error('Error loading conversations data:', error);
+      conversationDisplay.innerHTML = '<p class="has-text-centered placeholder-text">Error loading dataset information. Please try again later.</p>';
+    }
+  }
+  
+  function populateDomainDropdown() {
     // Clear existing options except the first one
     while (domainDropdown.options.length > 1) {
       domainDropdown.remove(1);
     }
     
     // Add domains to dropdown
-    domainList.forEach(domain => {
+    const domains = Object.keys(conversationsData.domains);
+    domains.forEach(domain => {
       const option = document.createElement('option');
       option.value = domain;
       option.textContent = domain;
@@ -714,115 +680,65 @@
   function handleDomainChange() {
     currentDomain = domainDropdown.value;
     
-    if (!currentDomain) {
-      conversationDropdown.disabled = true;
-      return;
-    }
-    
-    // Enable conversation dropdown
-    conversationDropdown.disabled = false;
-    
-    // Load conversations for this domain
-    scanConversationsForDomain(currentDomain);
-  }
-  
-  async function scanConversationsForDomain(domain) {
-    // Clear existing options except the first one
+    // Reset conversation dropdown
+    conversationDropdown.disabled = true;
     while (conversationDropdown.options.length > 1) {
       conversationDropdown.remove(1);
     }
     
-    // Show loading state
-    conversationDropdown.disabled = true;
-    conversationDisplay.innerHTML = '<p class="has-text-centered placeholder-text">Scanning for conversations...</p>';
+    // Reset conversation display
+    conversationDisplay.innerHTML = '<p class="has-text-centered placeholder-text">Select a conversation to view</p>';
     
-    try {
-      if (!conversations[domain]) {
-        conversations[domain] = [];
-        
-        // Art domain uses simple numeric IDs
-        if (domain === 'Art') {
-          for (let i = 1; i <= 10; i++) {
-            try {
-              const response = await fetch(`${CONFIG.basePath}${domain}/${i}/${i}.json`);
-              if (response.ok) {
-                conversations[domain].push(i.toString());
-              }
-            } catch (err) {
-              console.log(`Conversation ${i} not found in domain ${domain}`);
-            }
-          }
-        } 
-        // All other domains use INT_INT pattern
-        else {
-          // Try to find conversations with pattern x_y where x and y are integers
-          // For simplicity, let's check combinations where x is 1-100 and y is 1-100
-          for (let x = 1; x <= 100; x++) {
-            for (let y = 1; y <= 100; y++) {
-              const pattern = `${x}_${y}`;
-              try {
-                const response = await fetch(`${CONFIG.basePath}${domain}/${pattern}/${pattern}.json`);
-                if (response.ok) {
-                  conversations[domain].push(pattern);
-                  // To avoid too many requests, once we find a few conversations, we can stop
-                  if (conversations[domain].length >= 5) break;
-                }
-              } catch (err) {
-                // Skip failed patterns
-              }
-            }
-            // If we already have enough conversations, break out of the outer loop too
-            if (conversations[domain].length >= 5) break;
-          }
-        }
-      }
-      
-      // If we found conversations, add them to the dropdown
-      if (conversations[domain].length > 0) {
-        conversations[domain].forEach(convoNum => {
-          const option = document.createElement('option');
-          option.value = convoNum;
-          option.textContent = `Conversation ${convoNum}`;
-          conversationDropdown.appendChild(option);
-        });
-      } else {
-        // If no conversations were found, add a placeholder
-        const option = document.createElement('option');
-        option.value = "";
-        option.disabled = true;
-        option.textContent = "No conversations found";
-        conversationDropdown.appendChild(option);
-      }
-    } catch (error) {
-      console.error(`Error scanning for conversations in domain ${domain}:`, error);
-      conversationDisplay.innerHTML = `<p class="has-text-centered placeholder-text">Error scanning for conversations. Please try again.</p>`;
-    } finally {
-      conversationDropdown.disabled = false;
+    if (!currentDomain) {
+      return;
     }
+    
+    // Populate conversation dropdown
+    populateConversationDropdown(currentDomain);
+    conversationDropdown.disabled = false;
+  }
+  
+  function populateConversationDropdown(domain) {
+    const conversations = conversationsData.domains[domain];
+    
+    conversations.forEach(convo => {
+      const option = document.createElement('option');
+      option.value = convo.id;
+      option.textContent = convo.name || `Conversation ${convo.id}`;
+      conversationDropdown.appendChild(option);
+    });
   }
   
   function handleConversationChange() {
-    currentConversation = conversationDropdown.value;
+    currentConversationId = conversationDropdown.value;
     
-    if (!currentConversation) {
+    if (!currentConversationId) {
       return;
     }
     
     // Load the selected conversation
-    loadConversation(currentDomain, currentConversation);
+    loadConversation(currentDomain, currentConversationId);
   }
   
-  async function loadConversation(domain, conversationId) {
+  function findConversationById(domain, id) {
+    return conversationsData.domains[domain].find(convo => convo.id === id);
+  }
+  
+  async function loadConversation(domain, id) {
     // Show loading indicator
     loadingIndicator.style.display = 'block';
     conversationDisplay.innerHTML = '';
     
     try {
-      // Construct the path to the JSON file
-      const jsonPath = `${CONFIG.basePath}${domain}/${conversationId}/${conversationId}.json`;
+      // Find the conversation data
+      const convoInfo = findConversationById(domain, id);
       
-      // Fetch the conversation data
-      const response = await fetch(jsonPath);
+      if (!convoInfo) {
+        throw new Error(`Conversation not found: ${domain}/${id}`);
+      }
+      
+      // Fetch the conversation JSON
+      const response = await fetch(convoInfo.json_path);
       
       if (!response.ok) {
         throw new Error(`Failed to load conversation: ${response.status} ${response.statusText}`);
@@ -831,9 +747,9 @@
       const conversation = await response.json();
       
       // Display the conversation
-      displayConversation(conversation, domain, conversationId);
+      displayConversation(conversation, convoInfo);
     } catch (error) {
-      console.error(`Error loading conversation ${conversationId}:`, error);
+      console.error(`Error loading conversation ${id}:`, error);
       conversationDisplay.innerHTML = `<p class="has-text-centered placeholder-text">Error loading conversation. Please try again.</p>`;
     } finally {
       // Hide loading indicator
@@ -841,12 +757,12 @@
     }
   }
   
-  function displayConversation(conversation, domain, conversationId) {
+  function displayConversation(conversation, convoInfo) {
     // Create the conversation container
     const conversationContainer = document.createElement('div');
     conversationContainer.className = 'conversation-container';
     
-    // Create header (keep this part the same)
+    // Create header
     const headerDiv = document.createElement('div');
     headerDiv.className = 'conversation-header';
     
@@ -863,7 +779,7 @@
     
     conversationContainer.appendChild(headerDiv);
     
-    // Create messages (keep this part the same)
+    // Create messages
     conversation.conversation.forEach(message => {
       const messageDiv = document.createElement('div');
       messageDiv.className = `message ${message.speaker.toLowerCase()}`;
@@ -887,34 +803,15 @@
       conversationContainer.appendChild(messageDiv);
     });
     
-    // Create audio players with updated file naming logic
+    // Create audio players
     const audioPlayersDiv = document.createElement('div');
     audioPlayersDiv.className = 'audio-players';
-
-    // Different audio path naming based on domain
-    let tts1AudioPath, tts2AudioPath, tts1Label, tts2Label;
-
-    if (domain === 'Art') {
-      // Original naming format for Art domain
-      tts1AudioPath = `${CONFIG.basePath}${domain}/${conversationId}/${conversationId}_1.wav`;
-      tts2AudioPath = `${CONFIG.basePath}${domain}/${conversationId}/${conversationId}_2.wav`;
-      tts1Label = 'TTS Model 1';
-      tts2Label = 'TTS Model 2';
-    } else {
-      // New naming format for all other domains
-      tts1AudioPath = `${CONFIG.basePath}${domain}/${conversationId}/${conversationId}_orpheus.wav`;
-      tts2AudioPath = `${CONFIG.basePath}${domain}/${conversationId}/${conversationId}_xtts.wav`;
-      alert('Audio tts1: ' + tts1AudioPath);
-      alert('Audio tts2: ' + tts2AudioPath);
-      tts1Label = 'Orpheus TTS';
-      tts2Label = 'XTTS Model';
-    }
     
-    const tts1Player = createAudioPlayer(tts1Label, tts1AudioPath);
-    const tts2Player = createAudioPlayer(tts2Label, tts2AudioPath);
+    const orpheusPlayer = createAudioPlayer('Orpheus TTS', convoInfo.orpheus_tts);
+    const xttsPlayer = createAudioPlayer('XTTS Model', convoInfo.xtts_tts);
     
-    audioPlayersDiv.appendChild(tts1Player);
-    audioPlayersDiv.appendChild(tts2Player);
+    audioPlayersDiv.appendChild(orpheusPlayer);
+    audioPlayersDiv.appendChild(xttsPlayer);
     
     conversationContainer.appendChild(audioPlayersDiv);
     

@@ -1,0 +1,20 @@
+{
+  "domains": {
+    "Cars": [
+      {
+        "id": "1",
+        "json_path": "static/conversations/Cars/4_3/4_3.json",
+        "orpheus_tts": "static/conversations/Cars/4_3/4_3_orpheus.wav",
+        "xtts_tts": "static/conversations/Cars/4_3/4_3_xtts.wav"
+      }
+    ],
+    "Events": [
+      {
+        "id": "1",
+        "json_path": "static/conversations/Events/28_3/28_3.json",
+        "orpheus_tts": "static/conversations/Events/28_3/28_3_orpheus.wav",
+        "xtts_tts": "static/conversations/Events/28_3/28_3_xtts.wav"
+      }
+    ]
+  }
+}

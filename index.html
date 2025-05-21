@@ -604,7 +604,8 @@
   const CONFIG = {
     conversationsJsonPath: 'static/conversations/conversations.json'
   };
-  
+  const DEFAULT_DOMAIN = "Cars"; 
+  const DEFAULT_CONVERSATION_ID = "1"; 
   // Global state
   let conversationsData = null;
   let currentDomain = null;
@@ -655,6 +656,23 @@
       
       // Populate domain dropdown
       populateDomainDropdown();
+      
+      // Set default conversation
+      if (DEFAULT_DOMAIN && DEFAULT_CONVERSATION_ID) {
+        // Set domain dropdown to default value
+        domainDropdown.value = DEFAULT_DOMAIN;
+        
+        // Trigger domain change to populate conversation dropdown
+        handleDomainChange();
+        
+        // Set conversation dropdown to default value
+        setTimeout(() => {
+          conversationDropdown.value = DEFAULT_CONVERSATION_ID;
+          
+          // Trigger loading the default conversation
+          loadConversation(DEFAULT_DOMAIN, DEFAULT_CONVERSATION_ID);
+        }, 100); // Small delay to ensure conversation dropdown has been populated
+      }
     } catch (error) {
       console.error('Error loading conversations data:', error);
       conversationDisplay.innerHTML = '<p class="has-text-centered placeholder-text">Error loading dataset information. Please try again later.</p>';

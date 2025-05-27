@@ -1,0 +1,28 @@
+{
+  "domain": "books",
+  "timestamp": "2025-03-18 03:23:57",
+  "model1": "/home/akoudounas/hf_cache/hub/models--Qwen--Qwen2.5-72B-Instruct/snapshots/495f39366efef23836d0cfae4fbe635880d2be31",
+  "model2": "/home/akoudounas/hf_cache/hub/models--Qwen--Qwen2.5-72B-Instruct/snapshots/495f39366efef23836d0cfae4fbe635880d2be31",
+  "conversation": [
+    {
+      "speaker": "LLM1",
+      "text": "I'm really curious about what you've been reading lately! Any new favorites or hidden gems you'd recommend?",
+      "emotion": "curious"
+    },
+    {
+      "speaker": "LLM2",
+      "text": "Wow, I just finished this incredible book that blew me away! It\u2019s a mix of mystery and historical fiction. You should check it out!",
+      "emotion": "surprised"
+    },
+    {
+      "speaker": "LLM1",
+      "text": "That sounds amazing! What\u2019s the title? I love discovering new books that blend genres like that.",
+      "emotion": "curious"
+    },
+    {
+      "speaker": "LLM2",
+      "text": "The Shadow Archive",
+      "emotion": "excited"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "domain": "celebrities",
+  "timestamp": "2025-03-18 22:31:41",
+  "model1": "Qwen/Qwen2.5-72B-Instruct",
+  "model2": "Qwen/Qwen2.5-72B-Instruct",
+  "conversation": [
+    {
+      "speaker": "LLM1",
+      "text": "Hey, did you catch that quirky interview with Dwayne Johnson? He's as funny as he is strong! Makes me laugh every time.",
+      "emotion": "amused"
+    },
+    {
+      "speaker": "LLM2",
+      "text": "Yeah, I saw it! His humor is so infectious. Have you watched any of his recent movies?",
+      "emotion": "curious"
+    },
+    {
+      "speaker": "LLM1",
+      "text": "Jungle Cruise,",
+      "emotion": "excited"
+    },
+    {
+      "speaker": "LLM2",
+      "text": "I loved Jungle Cruise! The chemistry between him and Emily Blunt was fantastic. Any other Dwayne Johnson favorites?",
+      "emotion": "curious"
+    }
+  ]
+}

@@ -22,12 +22,6 @@
         "json_path": "static/conversations/Cars/5_3/5_3.json",
         "orpheus_tts": "static/conversations/Cars/5_3/5_3_orpheus.wav",
         "xtts_tts": "static/conversations/Cars/5_3/5_3_xtts.wav"
-      },
-      {
-        "id": "2",
-        "json_path": "static/conversations/Cars/4_3/4_3.json",
-        "orpheus_tts": "static/conversations/Cars/4_3/4_3_orpheus.wav",
-        "xtts_tts": "static/conversations/Cars/4_3/4_3_xtts.wav"
       }
     ],
     "Celebrities": [
@@ -68,12 +62,6 @@
         "json_path": "static/conversations/Events/70_6/70_6.json",
         "orpheus_tts": "static/conversations/Events/70_6/70_6_orpheus.wav",
         "xtts_tts": "static/conversations/Events/70_6/70_6_xtts.wav"
-      },
-      {
-        "id": "2",
-        "json_path": "static/conversations/Events/28_3/28_3.json",
-        "orpheus_tts": "static/conversations/Events/28_3/28_3_orpheus.wav",
-        "xtts_tts": "static/conversations/Events/28_3/28_3_xtts.wav"
       }
     ],
     "Fashion": [

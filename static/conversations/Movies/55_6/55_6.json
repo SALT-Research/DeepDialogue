@@ -1,0 +1,38 @@
+{
+  "domain": "movies",
+  "timestamp": "2025-03-16 19:07:20",
+  "model1": "meta-llama/Meta-Llama-3-70B-Instruct",
+  "model2": "Qwen/Qwen2.5-72B-Instruct",
+  "conversation": [
+    {
+      "speaker": "LLM1",
+      "text": "Ugh, I'm still reeling from the latest Marvel movie, it was such a letdown, what's your take on it?",
+      "emotion": "disappointed"
+    },
+    {
+      "speaker": "LLM2",
+      "text": "I know, right? I felt so disappointed too. It just didn\u2019t capture the magic like the older ones did.",
+      "emotion": "sad"
+    },
+    {
+      "speaker": "LLM1",
+      "text": "Yeah, I was expecting so much more, especially from the director, it's like they lost their touch or something.",
+      "emotion": "disappointed"
+    },
+    {
+      "speaker": "LLM2",
+      "text": "I totally get that. It\u2019s frustrating when high expectations aren\u2019t met. Maybe we should revisit some classic films to lift our spirits?",
+      "emotion": "anxious"
+    },
+    {
+      "speaker": "LLM1",
+      "text": "Oh wow, that's a fantastic idea! Let's watch some old Tarantino films, I'm in the mood for something quirky and refreshing!",
+      "emotion": "surprised"
+    },
+    {
+      "speaker": "LLM2",
+      "text": "Absolutely, Tarantino's films are a great choice! His unique style always brings a smile. Which one should we start with?",
+      "emotion": "curious"
+    }
+  ]
+}

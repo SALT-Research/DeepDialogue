@@ -35,7 +35,17 @@ datasets = [
     ("PHOTOGRAPHY", "dialogues_llama3-70B_qwen2.5-72B/photography_12_4"),
     ("PODCASTS", "dialogues_llama3-70B_qwen2.5-72B/podcasts_21_4"),
     ("POLITICS", "dialogues_llama3-70B_qwen2.5-72B/politics_58_4"),
-    ("RELATIONSHIPS", "dialogues_llama3-70B_qwen2.5-72B/relationships_40_5")
+    ("RELATIONSHIPS", "dialogues_llama3-70B_qwen2.5-72B/relationships_40_5"),
+    ("SCIENCE", "dialogues_llama3-70B_qwen2.5-72B/science_29_4"),
+    ("SHOPPING", "dialogues_llama3-70B_qwen2.5-72B/shopping_28_3"),
+    ("SOCIAL MEDIA", "dialogues_llama3-70B_qwen2.5-72B/social_media_15_6"),
+    ("SPIRITUALITY", "dialogues_llama3-70B_qwen2.5-72B/spirituality_23_4"),
+    ("SPORTS", "dialogues_llama3-70B_qwen2.5-72B/sports_86_5"),
+    ("TECHNOLOGY", "dialogues_llama3-70B_qwen2.5-72B/technology_21_5"),
+    ("TRADITIONS", "dialogues_llama3-70B_qwen2.5-72B/traditions_58_6"),
+    ("TRAVEL", "dialogues_llama3-70B_qwen2.5-72B/travel_98_4"),
+    ("WEATHER", "dialogues_llama3-70B_qwen2.5-72B/weather_33_4"),
+    ("WORK", "dialogues_llama3-70B_qwen2.5-72B/work_44_5")
 ]
 
 # Base URLs
@@ -104,6 +114,7 @@ for domain, path in datasets:
     id_counters[domain] += 1  # Increment the counter for the next entry
     entry = {
         "id": current_id,
+        "id_path": file_subid,
         "json_path": f"{base_dir}/{domain.capitalize()}/{file_subid}/{json_filename}",
         "orpheus_tts": f"{base_dir}/{domain.capitalize()}/{file_subid}/{orpheus_filename}",
         "xtts_tts": f"{base_dir}/{domain.capitalize()}/{file_subid}/{xtts_filename}"

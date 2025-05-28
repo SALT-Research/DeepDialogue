@@ -571,13 +571,16 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title is-3 section-title">BibTeX</h2>
-    <!-- <pre><code>@article{author2025deepdialogue,
-  title={DeepDialogue: A Dataset of Synthetic Conversations Between LLMs with Audio from Different TTS Models},
-  author={Author, First and Author, Second and Author, Third},
-  journal={arXiv preprint arXiv:XXXX.XXXXX},
-  year={2025}
-}</code></pre> -->
-  <pre><code>...Coming soon...</code></pre>
+  <p>Complete BibTeX citation will be updated soon.</p>
+    <pre><code>@misc{koudounas2025deepdialoguemultiturnemotionallyrichspoken,
+      title={DeepDialogue: A Multi-Turn Emotionally-Rich Spoken Dialogue Dataset}, 
+      author={Alkis Koudounas and Moreno La Quatra and Elena Baralis},
+      year={2025},
+      eprint={2505.19978},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2505.19978}, 
+}</code></pre>
   </div>
 </section>
 <!--End BibTex citation -->
@@ -605,11 +608,12 @@
     conversationsJsonPath: 'static/conversations/conversations.json'
   };
   const DEFAULT_DOMAIN = "Cars"; 
-  const DEFAULT_CONVERSATION_ID = "1"; 
+  const DEFAULT_CONVERSATION_ID_PATH = "5_3"; // Changed from ID to ID_PATH
+  
   // Global state
   let conversationsData = null;
   let currentDomain = null;
-  let currentConversationId = null;
+  let currentConversationIdPath = null; // Changed from ID to ID_PATH
   
   // DOM Elements
   const domainDropdown = document.getElementById('domain-dropdown');
@@ -658,7 +662,7 @@
       populateDomainDropdown();
       
       // Set default conversation
-      if (DEFAULT_DOMAIN && DEFAULT_CONVERSATION_ID) {
+      if (DEFAULT_DOMAIN && DEFAULT_CONVERSATION_ID_PATH) {
         // Set domain dropdown to default value
         domainDropdown.value = DEFAULT_DOMAIN;
         
@@ -667,10 +671,10 @@
         
         // Set conversation dropdown to default value
         setTimeout(() => {
-          conversationDropdown.value = DEFAULT_CONVERSATION_ID;
+          conversationDropdown.value = DEFAULT_CONVERSATION_ID_PATH; // Use id_path
           
           // Trigger loading the default conversation
-          loadConversation(DEFAULT_DOMAIN, DEFAULT_CONVERSATION_ID);
+          loadConversation(DEFAULT_DOMAIN, DEFAULT_CONVERSATION_ID_PATH);
         }, 100); // Small delay to ensure conversation dropdown has been populated
       }
     } catch (error) {
@@ -721,38 +725,39 @@
     
     conversations.forEach(convo => {
       const option = document.createElement('option');
-      option.value = convo.id;
-      option.textContent = convo.name || `Conversation ${convo.id}`;
+      option.value = convo.id_path; // Use id_path instead of id
+      option.textContent = convo.name || `Conversation ${convo.id_path}`; // Show id_path in display
       conversationDropdown.appendChild(option);
     });
   }
   
   function handleConversationChange() {
-    currentConversationId = conversationDropdown.value;
+    currentConversationIdPath = conversationDropdown.value; // Changed variable name
     
-    if (!currentConversationId) {
+    if (!currentConversationIdPath) {
       return;
     }
     
     // Load the selected conversation
-    loadConversation(currentDomain, currentConversationId);
+    loadConversation(currentDomain, currentConversationIdPath);
   }
   
-  function findConversationById(domain, id) {
-    return conversationsData.domains[domain].find(convo => convo.id === id);
+  // Fixed function to find by id_path instead of id
+  function findConversationByIdPath(domain, idPath) {
+    return conversationsData.domains[domain].find(convo => convo.id_path === idPath);
   }
   
-  async function loadConversation(domain, id) {
+  async function loadConversation(domain, idPath) { // Parameter name changed
     // Show loading indicator
     loadingIndicator.style.display = 'block';
     conversationDisplay.innerHTML = '';
     
     try {
-      // Find the conversation data
-      const convoInfo = findConversationById(domain, id);
+      // Find the conversation data using id_path
+      const convoInfo = findConversationByIdPath(domain, idPath);
       
       if (!convoInfo) {
-        throw new Error(`Conversation not found: ${domain}/${id}`);
+        throw new Error(`Conversation not found: ${domain}/${idPath}`);
       }
       
       // Fetch the conversation JSON
@@ -761,13 +766,13 @@
       if (!response.ok) {
         throw new Error(`Failed to load conversation: ${response.status} ${response.statusText}`);
       }
-      
+
       const conversation = await response.json();
       
       // Display the conversation
       displayConversation(conversation, convoInfo);
     } catch (error) {
-      console.error(`Error loading conversation ${id}:`, error);
+      console.error(`Error loading conversation ${idPath}:`, error);
       conversationDisplay.innerHTML = `<p class="has-text-centered placeholder-text">Error loading conversation. Please try again.</p>`;
     } finally {
       // Hide loading indicator
@@ -776,6 +781,8 @@
   }
   
   function displayConversation(conversation, convoInfo) {
+    // Removed the alert - it was just for debugging
+    
     // Create the conversation container
     const conversationContainer = document.createElement('div');
     conversationContainer.className = 'conversation-container';

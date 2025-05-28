@@ -3,6 +3,7 @@
     "Art": [
       {
         "id": 1,
+        "id_path": "22_4",
         "json_path": "static/conversations/Art/22_4/22_4.json",
         "orpheus_tts": "static/conversations/Art/22_4/22_4_orpheus.wav",
         "xtts_tts": "static/conversations/Art/22_4/22_4_xtts.wav"
@@ -11,6 +12,7 @@
     "Books": [
       {
         "id": 1,
+        "id_path": "89_4",
         "json_path": "static/conversations/Books/89_4/89_4.json",
         "orpheus_tts": "static/conversations/Books/89_4/89_4_orpheus.wav",
         "xtts_tts": "static/conversations/Books/89_4/89_4_xtts.wav"
@@ -19,6 +21,7 @@
     "Cars": [
       {
         "id": 1,
+        "id_path": "5_3",
         "json_path": "static/conversations/Cars/5_3/5_3.json",
         "orpheus_tts": "static/conversations/Cars/5_3/5_3_orpheus.wav",
         "xtts_tts": "static/conversations/Cars/5_3/5_3_xtts.wav"
@@ -27,6 +30,7 @@
     "Celebrities": [
       {
         "id": 1,
+        "id_path": "69_4",
         "json_path": "static/conversations/Celebrities/69_4/69_4.json",
         "orpheus_tts": "static/conversations/Celebrities/69_4/69_4_orpheus.wav",
         "xtts_tts": "static/conversations/Celebrities/69_4/69_4_xtts.wav"
@@ -35,6 +39,7 @@
     "Coding": [
       {
         "id": 1,
+        "id_path": "55_4",
         "json_path": "static/conversations/Coding/55_4/55_4.json",
         "orpheus_tts": "static/conversations/Coding/55_4/55_4_orpheus.wav",
         "xtts_tts": "static/conversations/Coding/55_4/55_4_xtts.wav"
@@ -43,6 +48,7 @@
     "Cooking": [
       {
         "id": 1,
+        "id_path": "71_5",
         "json_path": "static/conversations/Cooking/71_5/71_5.json",
         "orpheus_tts": "static/conversations/Cooking/71_5/71_5_orpheus.wav",
         "xtts_tts": "static/conversations/Cooking/71_5/71_5_xtts.wav"
@@ -51,6 +57,7 @@
     "Education": [
       {
         "id": 1,
+        "id_path": "77_7",
         "json_path": "static/conversations/Education/77_7/77_7.json",
         "orpheus_tts": "static/conversations/Education/77_7/77_7_orpheus.wav",
         "xtts_tts": "static/conversations/Education/77_7/77_7_xtts.wav"
@@ -59,6 +66,7 @@
     "Events": [
       {
         "id": 1,
+        "id_path": "70_6",
         "json_path": "static/conversations/Events/70_6/70_6.json",
         "orpheus_tts": "static/conversations/Events/70_6/70_6_orpheus.wav",
         "xtts_tts": "static/conversations/Events/70_6/70_6_xtts.wav"
@@ -67,6 +75,7 @@
     "Fashion": [
       {
         "id": 1,
+        "id_path": "81_3",
         "json_path": "static/conversations/Fashion/81_3/81_3.json",
         "orpheus_tts": "static/conversations/Fashion/81_3/81_3_orpheus.wav",
         "xtts_tts": "static/conversations/Fashion/81_3/81_3_xtts.wav"
@@ -75,6 +84,7 @@
     "Finance": [
       {
         "id": 1,
+        "id_path": "1_5",
         "json_path": "static/conversations/Finance/1_5/1_5.json",
         "orpheus_tts": "static/conversations/Finance/1_5/1_5_orpheus.wav",
         "xtts_tts": "static/conversations/Finance/1_5/1_5_xtts.wav"
@@ -83,6 +93,7 @@
     "Fitness": [
       {
         "id": 1,
+        "id_path": "2_8",
         "json_path": "static/conversations/Fitness/2_8/2_8.json",
         "orpheus_tts": "static/conversations/Fitness/2_8/2_8_orpheus.wav",
         "xtts_tts": "static/conversations/Fitness/2_8/2_8_xtts.wav"
@@ -91,6 +102,7 @@
     "Food": [
       {
         "id": 1,
+        "id_path": "28_3",
         "json_path": "static/conversations/Food/28_3/28_3.json",
         "orpheus_tts": "static/conversations/Food/28_3/28_3_orpheus.wav",
         "xtts_tts": "static/conversations/Food/28_3/28_3_xtts.wav"
@@ -99,6 +111,7 @@
     "Gaming": [
       {
         "id": 1,
+        "id_path": "74_4",
         "json_path": "static/conversations/Gaming/74_4/74_4.json",
         "orpheus_tts": "static/conversations/Gaming/74_4/74_4_orpheus.wav",
         "xtts_tts": "static/conversations/Gaming/74_4/74_4_xtts.wav"
@@ -107,6 +120,7 @@
     "Gardening": [
       {
         "id": 1,
+        "id_path": "13_6",
         "json_path": "static/conversations/Gardening/13_6/13_6.json",
         "orpheus_tts": "static/conversations/Gardening/13_6/13_6_orpheus.wav",
         "xtts_tts": "static/conversations/Gardening/13_6/13_6_xtts.wav"
@@ -115,6 +129,7 @@
     "Health": [
       {
         "id": 1,
+        "id_path": "92_5",
         "json_path": "static/conversations/Health/92_5/92_5.json",
         "orpheus_tts": "static/conversations/Health/92_5/92_5_orpheus.wav",
         "xtts_tts": "static/conversations/Health/92_5/92_5_xtts.wav"
@@ -123,6 +138,7 @@
     "History": [
       {
         "id": 1,
+        "id_path": "8_5",
         "json_path": "static/conversations/History/8_5/8_5.json",
         "orpheus_tts": "static/conversations/History/8_5/8_5_orpheus.wav",
         "xtts_tts": "static/conversations/History/8_5/8_5_xtts.wav"
@@ -131,6 +147,7 @@
     "Hobbies": [
       {
         "id": 1,
+        "id_path": "59_5",
         "json_path": "static/conversations/Hobbies/59_5/59_5.json",
         "orpheus_tts": "static/conversations/Hobbies/59_5/59_5_orpheus.wav",
         "xtts_tts": "static/conversations/Hobbies/59_5/59_5_xtts.wav"
@@ -139,6 +156,7 @@
     "Holidays": [
       {
         "id": 1,
+        "id_path": "35_4",
         "json_path": "static/conversations/Holidays/35_4/35_4.json",
         "orpheus_tts": "static/conversations/Holidays/35_4/35_4_orpheus.wav",
         "xtts_tts": "static/conversations/Holidays/35_4/35_4_xtts.wav"
@@ -147,6 +165,7 @@
     "Home": [
       {
         "id": 1,
+        "id_path": "7_8",
         "json_path": "static/conversations/Home/7_8/7_8.json",
         "orpheus_tts": "static/conversations/Home/7_8/7_8_orpheus.wav",
         "xtts_tts": "static/conversations/Home/7_8/7_8_xtts.wav"
@@ -155,6 +174,7 @@
     "Languages": [
       {
         "id": 1,
+        "id_path": "47_4",
         "json_path": "static/conversations/Languages/47_4/47_4.json",
         "orpheus_tts": "static/conversations/Languages/47_4/47_4_orpheus.wav",
         "xtts_tts": "static/conversations/Languages/47_4/47_4_xtts.wav"
@@ -163,6 +183,7 @@
     "Makeup": [
       {
         "id": 1,
+        "id_path": "23_4",
         "json_path": "static/conversations/Makeup/23_4/23_4.json",
         "orpheus_tts": "static/conversations/Makeup/23_4/23_4_orpheus.wav",
         "xtts_tts": "static/conversations/Makeup/23_4/23_4_xtts.wav"
@@ -171,6 +192,7 @@
     "Movies": [
       {
         "id": 1,
+        "id_path": "55_6",
         "json_path": "static/conversations/Movies/55_6/55_6.json",
         "orpheus_tts": "static/conversations/Movies/55_6/55_6_orpheus.wav",
         "xtts_tts": "static/conversations/Movies/55_6/55_6_xtts.wav"
@@ -179,6 +201,7 @@
     "Music": [
       {
         "id": 1,
+        "id_path": "45_5",
         "json_path": "static/conversations/Music/45_5/45_5.json",
         "orpheus_tts": "static/conversations/Music/45_5/45_5_orpheus.wav",
         "xtts_tts": "static/conversations/Music/45_5/45_5_xtts.wav"
@@ -187,6 +210,7 @@
     "Nature": [
       {
         "id": 1,
+        "id_path": "19_6",
         "json_path": "static/conversations/Nature/19_6/19_6.json",
         "orpheus_tts": "static/conversations/Nature/19_6/19_6_orpheus.wav",
         "xtts_tts": "static/conversations/Nature/19_6/19_6_xtts.wav"
@@ -195,6 +219,7 @@
     "News": [
       {
         "id": 1,
+        "id_path": "31_4",
         "json_path": "static/conversations/News/31_4/31_4.json",
         "orpheus_tts": "static/conversations/News/31_4/31_4_orpheus.wav",
         "xtts_tts": "static/conversations/News/31_4/31_4_xtts.wav"
@@ -203,6 +228,7 @@
     "Pets": [
       {
         "id": 1,
+        "id_path": "63_9",
         "json_path": "static/conversations/Pets/63_9/63_9.json",
         "orpheus_tts": "static/conversations/Pets/63_9/63_9_orpheus.wav",
         "xtts_tts": "static/conversations/Pets/63_9/63_9_xtts.wav"
@@ -211,6 +237,7 @@
     "Philosophy": [
       {
         "id": 1,
+        "id_path": "33_4",
         "json_path": "static/conversations/Philosophy/33_4/33_4.json",
         "orpheus_tts": "static/conversations/Philosophy/33_4/33_4_orpheus.wav",
         "xtts_tts": "static/conversations/Philosophy/33_4/33_4_xtts.wav"
@@ -219,6 +246,7 @@
     "Photography": [
       {
         "id": 1,
+        "id_path": "12_4",
         "json_path": "static/conversations/Photography/12_4/12_4.json",
         "orpheus_tts": "static/conversations/Photography/12_4/12_4_orpheus.wav",
         "xtts_tts": "static/conversations/Photography/12_4/12_4_xtts.wav"
@@ -227,6 +255,7 @@
     "Podcasts": [
       {
         "id": 1,
+        "id_path": "21_4",
         "json_path": "static/conversations/Podcasts/21_4/21_4.json",
         "orpheus_tts": "static/conversations/Podcasts/21_4/21_4_orpheus.wav",
         "xtts_tts": "static/conversations/Podcasts/21_4/21_4_xtts.wav"
@@ -235,6 +264,7 @@
     "Politics": [
       {
         "id": 1,
+        "id_path": "58_4",
         "json_path": "static/conversations/Politics/58_4/58_4.json",
         "orpheus_tts": "static/conversations/Politics/58_4/58_4_orpheus.wav",
         "xtts_tts": "static/conversations/Politics/58_4/58_4_xtts.wav"
@@ -243,9 +273,100 @@
     "Relationships": [
       {
         "id": 1,
+        "id_path": "40_5",
         "json_path": "static/conversations/Relationships/40_5/40_5.json",
         "orpheus_tts": "static/conversations/Relationships/40_5/40_5_orpheus.wav",
         "xtts_tts": "static/conversations/Relationships/40_5/40_5_xtts.wav"
+      }
+    ],
+    "Science": [
+      {
+        "id": 1,
+        "id_path": "29_4",
+        "json_path": "static/conversations/Science/29_4/29_4.json",
+        "orpheus_tts": "static/conversations/Science/29_4/29_4_orpheus.wav",
+        "xtts_tts": "static/conversations/Science/29_4/29_4_xtts.wav"
+      }
+    ],
+    "Shopping": [
+      {
+        "id": 1,
+        "id_path": "28_3",
+        "json_path": "static/conversations/Shopping/28_3/28_3.json",
+        "orpheus_tts": "static/conversations/Shopping/28_3/28_3_orpheus.wav",
+        "xtts_tts": "static/conversations/Shopping/28_3/28_3_xtts.wav"
+      }
+    ],
+    "Social media": [
+      {
+        "id": 1,
+        "id_path": "media_15_6",
+        "json_path": "static/conversations/Social media/media_15_6/media_15_6.json",
+        "orpheus_tts": "static/conversations/Social media/media_15_6/media_15_6_orpheus.wav",
+        "xtts_tts": "static/conversations/Social media/media_15_6/media_15_6_xtts.wav"
+      }
+    ],
+    "Spirituality": [
+      {
+        "id": 1,
+        "id_path": "23_4",
+        "json_path": "static/conversations/Spirituality/23_4/23_4.json",
+        "orpheus_tts": "static/conversations/Spirituality/23_4/23_4_orpheus.wav",
+        "xtts_tts": "static/conversations/Spirituality/23_4/23_4_xtts.wav"
+      }
+    ],
+    "Sports": [
+      {
+        "id": 1,
+        "id_path": "86_5",
+        "json_path": "static/conversations/Sports/86_5/86_5.json",
+        "orpheus_tts": "static/conversations/Sports/86_5/86_5_orpheus.wav",
+        "xtts_tts": "static/conversations/Sports/86_5/86_5_xtts.wav"
+      }
+    ],
+    "Technology": [
+      {
+        "id": 1,
+        "id_path": "21_5",
+        "json_path": "static/conversations/Technology/21_5/21_5.json",
+        "orpheus_tts": "static/conversations/Technology/21_5/21_5_orpheus.wav",
+        "xtts_tts": "static/conversations/Technology/21_5/21_5_xtts.wav"
+      }
+    ],
+    "Traditions": [
+      {
+        "id": 1,
+        "id_path": "58_6",
+        "json_path": "static/conversations/Traditions/58_6/58_6.json",
+        "orpheus_tts": "static/conversations/Traditions/58_6/58_6_orpheus.wav",
+        "xtts_tts": "static/conversations/Traditions/58_6/58_6_xtts.wav"
+      }
+    ],
+    "Travel": [
+      {
+        "id": 1,
+        "id_path": "98_4",
+        "json_path": "static/conversations/Travel/98_4/98_4.json",
+        "orpheus_tts": "static/conversations/Travel/98_4/98_4_orpheus.wav",
+        "xtts_tts": "static/conversations/Travel/98_4/98_4_xtts.wav"
+      }
+    ],
+    "Weather": [
+      {
+        "id": 1,
+        "id_path": "33_4",
+        "json_path": "static/conversations/Weather/33_4/33_4.json",
+        "orpheus_tts": "static/conversations/Weather/33_4/33_4_orpheus.wav",
+        "xtts_tts": "static/conversations/Weather/33_4/33_4_xtts.wav"
+      }
+    ],
+    "Work": [
+      {
+        "id": 1,
+        "id_path": "44_5",
+        "json_path": "static/conversations/Work/44_5/44_5.json",
+        "orpheus_tts": "static/conversations/Work/44_5/44_5_orpheus.wav",
+        "xtts_tts": "static/conversations/Work/44_5/44_5_xtts.wav"
       }
     ]
   }
